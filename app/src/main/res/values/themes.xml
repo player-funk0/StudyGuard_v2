@@ -1,0 +1,10 @@
+<resources>
+    <!-- Base application theme. The Compose theme (ui/theme/Theme.kt) overrides
+         most of these, but a window-level style is still required. -->
+    <style name="Theme.StudyGuard" parent="android:Theme.Material.NoTitleBar">
+        <item name="android:windowBackground">@android:color/black</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

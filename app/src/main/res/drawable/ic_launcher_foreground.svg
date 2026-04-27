@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#0A1628"/>
+      <stop offset="100%" stop-color="#0E2040"/>
+    </linearGradient>
+
+    <radialGradient id="centerGlow" cx="50%" cy="58%" r="42%">
+      <stop offset="0%"   stop-color="#1A4A8A" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#0A1628"  stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="pageLeft" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#D8E8FF"/>
+      <stop offset="100%" stop-color="#EEF4FF"/>
+    </linearGradient>
+
+    <linearGradient id="pageRight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#EEF4FF"/>
+      <stop offset="100%" stop-color="#D8E8FF"/>
+    </linearGradient>
+
+    <linearGradient id="coverGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#1E4A8A"/>
+      <stop offset="100%" stop-color="#0F2D5A"/>
+    </linearGradient>
+
+    <linearGradient id="spineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#1A3A6B"/>
+      <stop offset="100%" stop-color="#2355A0"/>
+    </linearGradient>
+
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#FFE080"/>
+      <stop offset="100%" stop-color="#F0A010"/>
+    </linearGradient>
+
+    <linearGradient id="spineShadowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#000000" stop-opacity="0"/>
+      <stop offset="50%"  stop-color="#000000" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </linearGradient>
+
+    <filter id="softShadow" x="-8%" y="-8%" width="116%" height="116%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8"
+                    flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+
+    <filter id="goldGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <clipPath id="iconClip">
+      <rect width="512" height="512" rx="112" ry="112"/>
+    </clipPath>
+
+  </defs>
+
+  <g clip-path="url(#iconClip)">
+
+    <!-- Background -->
+    <rect width="512" height="512" fill="url(#bgGrad)"/>
+    <rect width="512" height="512" fill="url(#centerGlow)"/>
+
+    <!-- ════════════════════════════
+         BOOK — centered at x=256
+         Top: y=172   Bottom: y=368
+         Width each page: 148px
+         Left page:  x=108..256
+         Right page: x=256..404
+         Slight perspective tilt ±10px
+         ════════════════════════════ -->
+
+    <!-- Hard cover back (slight larger than pages) -->
+    <rect x="100" y="174" width="312" height="202" rx="6"
+          fill="url(#coverGrad)"
+          filter="url(#softShadow)"/>
+
+    <!-- Left page -->
+    <path d="M112,172  L252,168  L252,370  L112,374  Z"
+          fill="url(#pageLeft)"/>
+
+    <!-- Right page -->
+    <path d="M260,168  L400,172  L400,374  L260,370  Z"
+          fill="url(#pageRight)"/>
+
+    <!-- Center spine shadow -->
+    <rect x="244" y="168" width="24" height="204"
+          fill="url(#spineShadowGrad)"/>
+
+    <!-- Spine binding strip -->
+    <rect x="251" y="162" width="10" height="216" rx="4"
+          fill="url(#spineGrad)" opacity="0.9"/>
+
+    <!-- ── Left page text lines ──
+         Evenly spaced every 22px, starting y=210
+         Left margin: x=132   Right margin: x=236
+         Perspective: lines tilt ~1px across width -->
+    <g fill="none" stroke="#3A5A8A" stroke-width="2.2"
+       stroke-linecap="round" opacity="0.22">
+
+      <!-- Line 1 -->
+      <line x1="132" y1="210" x2="236" y2="209"/>
+      <!-- Line 2 -->
+      <line x1="132" y1="232" x2="236" y2="231"/>
+      <!-- Line 3 -->
+      <line x1="132" y1="254" x2="236" y2="253"/>
+      <!-- Line 4 — short (paragraph break) -->
+      <line x1="132" y1="276" x2="196" y2="275"/>
+      <!-- Line 5 -->
+      <line x1="132" y1="306" x2="236" y2="305"/>
+      <!-- Line 6 -->
+      <line x1="132" y1="328" x2="236" y2="327"/>
+      <!-- Line 7 — short -->
+      <line x1="132" y1="350" x2="180" y2="349"/>
+    </g>
+
+    <!-- ── Right page text lines (mirror of left) ── -->
+    <g fill="none" stroke="#3A5A8A" stroke-width="2.2"
+       stroke-linecap="round" opacity="0.22">
+
+      <!-- Line 1 -->
+      <line x1="276" y1="209" x2="380" y2="210"/>
+      <!-- Line 2 -->
+      <line x1="276" y1="231" x2="380" y2="232"/>
+      <!-- Line 3 -->
+      <line x1="276" y1="253" x2="380" y2="254"/>
+      <!-- Line 4 — short -->
+      <line x1="276" y1="275" x2="340" y2="276"/>
+      <!-- Line 5 -->
+      <line x1="276" y1="305" x2="380" y2="306"/>
+      <!-- Line 6 -->
+      <line x1="276" y1="327" x2="380" y2="328"/>
+      <!-- Line 7 — short -->
+      <line x1="276" y1="349" x2="324" y2="350"/>
+    </g>
+
+    <!-- Hard cover bottom edge (pages stack illusion) -->
+    <rect x="108" y="368" width="296" height="10" rx="2"
+          fill="#B4CADF" opacity="0.5"/>
+    <rect x="110" y="376" width="292" height="6"  rx="2"
+          fill="#9ABACC" opacity="0.35"/>
+
+    <!-- Hard cover frame lines (top edge) -->
+    <line x1="108" y1="174" x2="404" y2="174"
+          stroke="#2A5898" stroke-width="1.5" opacity="0.4"/>
+
+    <!-- ════════════════════════
+         CRESCENT + STAR
+         Centered at x=256, y=112
+         ════════════════════════ -->
+
+    <g filter="url(#goldGlow)" transform="translate(256,108)">
+
+      <!-- Crescent: outer circle r=34, inner cutout offset+smaller -->
+      <circle cx="0"  cy="0"  r="34" fill="url(#goldGrad)"/>
+      <circle cx="15" cy="-9" r="27" fill="#0C1C38"/>
+
+      <!-- 4-pointed star at right of crescent -->
+      <g transform="translate(33,-20) rotate(0)">
+        <polygon
+          points="0,-9  2.2,-2.2  9,0  2.2,2.2  0,9  -2.2,2.2  -9,0  -2.2,-2.2"
+          fill="url(#goldGrad)"/>
+      </g>
+
+    </g>
+
+  </g>
+
+  <!-- Outer border for polish -->
+  <rect width="512" height="512" rx="112" ry="112"
+        fill="none"
+        stroke="#243E72"
+        stroke-width="5"
+        stroke-opacity="0.5"/>
+
+</svg>
